@@ -6,6 +6,12 @@ const server = restify.createServer();
 //Middleware
 server.use(restify.plugins.bodyParser());
 
+server.use(function crossOrigin(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  return next();
+});
+
 // Listen
 server.listen(config.PORT, () => {
   mongoose.set("useFindAndModify", false);
