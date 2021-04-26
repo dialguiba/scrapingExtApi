@@ -32,8 +32,8 @@ server.use(cors.actual);
 router.add("/api/v1", RouterManager);
 router.applyRoutes(server);
 
-server.listen(8000, () => {
+server.listen(process.env.PORT || 8000, () => {
   const launchDate = new Date();
   signale.success(`[App] server launch ${launchDate}`);
-  signale.success(`Explore this api in: http://localhost:${8000}`);
+  signale.success(`Explore this api in: http://localhost:${process.env.PORT || 8000}`);
 });
