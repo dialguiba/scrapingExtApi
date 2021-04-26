@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose, { Schema } from "mongoose";
 const timestamp = require("mongoose-timestamp");
 
 const ContactSchema = new mongoose.Schema({
@@ -72,7 +72,9 @@ const ProfileSchema = new mongoose.Schema({
     required: false,
   },
 });
-ProfileSchema.plugin(timestamp); //adds timestampsautomatically to the model in the database
 
-const Profile = mongoose.model("Profile", ProfileSchema);
-module.exports = Profile; //exports the Profile model for reuse
+ProfileSchema.plugin(timestamp);
+
+const ProfileModel = mongoose.model("Profile", ProfileSchema);
+
+export default ProfileModel;
