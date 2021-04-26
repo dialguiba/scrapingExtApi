@@ -19,7 +19,7 @@ const cors = corsMiddleware({
   allowHeaders: ["X-XSRF-TOKEN", "Authorization"],
   credentials: false,
   exposeHeaders: [],
-  origins: ["*"],
+  origins: allowOrigins(),
 });
 
 server.use(logger("dev"));
